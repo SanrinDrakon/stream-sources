@@ -1,1 +1,431 @@
 
+<audio controls autoplay loop>
+  <source src="Terminull Brigade - Boss Music No. 1.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+<style>
+  body {
+    background-color: transparent; /* Fondo transparente */
+    font-family: 'Arial Black', Gadget, sans-serif; /* Una fuente impactante */
+    font-size: 80px; /* Tamaño grande para el mensaje */
+    font-weight: bold; /* Negrita */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Para apilar las líneas de texto */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupar toda la altura */
+    overflow: hidden;
+  }
+  .mensaje-linea {
+    transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+    line-height: 1.1; /* Espaciado entre líneas */
+  }
+</style>
+
+<div id="contenedor-mensaje">
+  <div id="linea1" class="mensaje-linea">Bienvenidos</div>
+  <div id="linea2" class="mensaje-linea">a</div>
+  <div id="linea3" class="mensaje-linea">Todos!!!</div>
+</div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarColoresMensaje() {
+    document.getElementById('linea1').style.color = getRandomColor();
+    document.getElementById('linea2').style.color = getRandomColor();
+    document.getElementById('linea3').style.color = getRandomColor();
+  }
+
+  // Actualiza los colores cada segundo
+  setInterval(actualizarColoresMensaje, 1000);
+  // Llama una vez al inicio para que aparezca con colores inmediatamente
+  actualizarColoresMensaje(); 
+</script>
+<style>
+  body {
+    background-color: transparent;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 85px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .mensaje-linea {
+    transition: color 1s ease-in-out;
+    line-height: 1.2;
+  }
+</style>
+
+<div id="contenedor-mensaje">
+  <div id="linea1" class="mensaje-linea">En breve</div>
+  <div id="linea2" class="mensaje-linea">Comenzamos</div>
+</div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarColores() {
+    document.getElementById('linea1').style.color = getRandomColor();
+    document.getElementById('linea2').style.color = getRandomColor();
+  }
+
+  setInterval(actualizarColores, 1000);
+  actualizarColores(); 
+</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drakón RGB</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegura que ocupe toda la altura */
+            background-color: transparent; /* Fondo transparente para usar como overlay */
+        }
+
+        #drakon-container {
+            position: relative;
+            /* Aquí hacemos el ajuste clave: limitar el tamaño máximo */
+            max-width: 75%; /* La imagen no superará el 75% del ancho del navegador */
+            max-height: 90vh; /* La imagen no superará el 90% de la altura del navegador */
+        }
+
+        #drakon-img {
+            display: block; /* Elimina espacios extra */
+            width: 100%; /* La imagen ocupará el 100% del contenedor */
+            height: auto;
+            /* Aquí está el filtro de color */
+            filter: hue-rotate(0deg);
+            transition: filter 1s linear;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="drakon-container">
+        <img id="drakon-img" src="drakon_rgb.png" alt="Drakón Crónicas del Caos">
+    </div>
+
+    <script>
+        const drakonImg = document.getElementById('drakon-img');
+        let hue = 0; // Inicializamos el tono en 0 grados
+
+        function changeHue() {
+            hue = (hue + 10) % 360; // Incrementa el tono y lo reinicia en 360
+            drakonImg.style.filter = `hue-rotate(${hue}deg)`; // Aplica el filtro
+        }
+
+        // Cambia el tono cada 90 milisegundos para una animación fluida
+        setInterval(changeHue, 90);
+    </script>
+
+</body>
+</html>
+<audio controls autoplay loop>
+  <source src="Terminull Brigade - Main Menu Music.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias Marquesina RGB</title>
+    <style>
+        body {
+            background-color: transparent;
+            margin: 0;
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+        }
+        .marquesina-container {
+            width: 100%;
+            white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: marquesina-movimiento 7s linear infinite; /* Animación de movimiento */
+        }
+        .mensaje-gracias {
+            display: inline-block;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-size: 100px;
+            font-weight: bold;
+            color: rgb(255, 255, 255); /* Color inicial blanco */
+            transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+            padding-left: 100%; /* El texto comienza fuera de la pantalla */
+        }
+
+        /* Animación del movimiento de marquesina */
+        @keyframes marquesina-movimiento {
+            from { transform: translate3d(0, -50%, 0); }
+            to { transform: translate3d(-100%, -50%, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquesina-container">
+        <div id="gracias-mensaje" class="mensaje-gracias">
+            ¡Gracias por la visita!
+        </div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        const graciasMensaje = document.getElementById('gracias-mensaje');
+
+        function actualizarColor() {
+            graciasMensaje.style.color = getRandomColor();
+        }
+        
+        // Cambia el color cada segundo
+        setInterval(actualizarColor, 1000);
+        // Llama a la función una vez para que el color aparezca al inicio
+        actualizarColor();
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias Marquesina RGB con Llamas</title>
+    <style>
+        body {
+            background-color: transparent;
+            margin: 0;
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+        }
+        .marquesina-container {
+            width: 100%;
+            white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: marquesina-movimiento 10s linear infinite; /* Animación de movimiento (ajusta los segundos para la velocidad) */
+            will-change: transform; /* Ayuda a la fluidez de la animación */
+        }
+        .mensaje-gracias {
+            display: inline-block;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-size: 100px;
+            font-weight: bold;
+            color: rgb(255, 255, 255); /* Color inicial blanco */
+            transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+            padding-left: 100%; /* El texto comienza fuera de la pantalla */
+
+            /* Estilo de las llamas con text-shadow múltiple */
+            text-shadow:
+                0 0 10px rgba(255, 165, 0, 0.8), /* Naranja base */
+                0 0 20px rgba(255, 69, 0, 0.7),  /* Rojo-naranja más intenso */
+                0 0 30px rgba(255, 0, 0, 0.6),   /* Rojo puro */
+                0 0 40px rgba(255, 255, 0, 0.5), /* Amarillo brillante */
+                0 0 50px rgba(255, 100, 0, 0.4); /* Resplandor adicional */
+            animation: flame-pulse 1.5s infinite alternate; /* Animación de pulsación de llamas */
+            will-change: text-shadow; /* Optimización para la animación */
+        }
+
+        /* Animación del movimiento de marquesina */
+        @keyframes marquesina-movimiento {
+            from { transform: translate3d(0, -50%, 0); }
+            to { transform: translate3d(-100%, -50%, 0); }
+        }
+
+        /* Animación para el efecto de pulsación de las llamas */
+        @keyframes flame-pulse {
+            0% {
+                text-shadow:
+                    0 0 10px rgba(255, 165, 0, 0.8),
+                    0 0 20px rgba(255, 69, 0, 0.7),
+                    0 0 30px rgba(255, 0, 0, 0.6);
+            }
+            50% {
+                text-shadow:
+                    0 0 15px rgba(255, 180, 0, 0.9), /* Más brillante */
+                    0 0 25px rgba(255, 80, 0, 0.8),
+                    0 0 35px rgba(255, 10, 0, 0.7),
+                    0 0 45px rgba(255, 255, 0, 0.6); /* Aparece el amarillo */
+            }
+            100% {
+                text-shadow:
+                    0 0 10px rgba(255, 165, 0, 0.8),
+                    0 0 20px rgba(255, 69, 0, 0.7),
+                    0 0 30px rgba(255, 0, 0, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquesina-container">
+        <div id="gracias-mensaje" class="mensaje-gracias">
+            ¡Gracias por la visita!
+        </div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        const graciasMensaje = document.getElementById('gracias-mensaje');
+
+        function actualizarColor() {
+            graciasMensaje.style.color = getRandomColor();
+        }
+        
+        // Cambia el color RGB cada segundo
+        setInterval(actualizarColor, 1000);
+        // Llama a la función una vez para que el color aparezca al inicio
+        actualizarColor();
+    </script>
+
+</body>
+</html>
+<style>
+  body {
+    background-color: transparent; /* Fondo transparente para que solo se vea el reloj */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Una fuente moderna y legible */
+    font-size: 100px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita para mejor visibilidad */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex; /* Para centrar el reloj verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Ocupar toda la altura disponible */
+    overflow: hidden; /* Evitar barras de desplazamiento si el texto es muy grande */
+  }
+  #reloj {
+    transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+  }
+</style>
+<div id="reloj"></div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarReloj() {
+    var fecha = new Date();
+    // Obtener la hora local de Venezuela (GMT-4)
+    // Esto es un poco más complejo si queremos ser súper precisos con DST,
+    // pero para la hora actual local suele ser suficiente.
+    // getHours() ya devuelve la hora local del sistema.
+    var horas = fecha.getHours().toString().padStart(2, '0');
+    var minutos = fecha.getMinutes().toString().padStart(2, '0');
+    var segundos = fecha.getSeconds().toString().padStart(2, '0');
+    
+    document.getElementById('reloj').innerHTML = `${horas}:${minutos}:${segundos}`;
+    document.getElementById('reloj').style.color = getRandomColor(); // Cambia el color
+  }
+
+  // Actualiza el reloj cada segundo
+  setInterval(actualizarReloj, 1000);
+  // Llama una vez al inicio para que el reloj aparezca inmediatamente
+  actualizarReloj(); 
+</script>
+<style>
+  body {
+    background-color: transparent; /* Fondo transparente */
+    font-family: 'Poppins', sans-serif; /* Una fuente moderna y amigable */
+    font-size: 150px; /* Tamaño grande para el nombre */
+    font-weight: 900; /* Extra bold */
+    text-align: center;
+    margin: 0;
+    padding: 0; /* Sin padding para que ocupe menos espacio si lo deseas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupar toda la altura */
+    overflow: hidden;
+  }
+  #nombre-stream {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), /* Sombra blanca para un efecto de brillo */
+                 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: color 1s ease-in-out, text-shadow 1s ease-in-out; /* Transición suave */
+    animation: pulse 2s infinite alternate ease-in-out; /* Animación de pulsación */
+  }
+
+  /* Animación de pulsación (brillo) */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+      transform: scale(1.02); /* Ligeramente más grande */
+      opacity: 1;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 1), /* Brillo más intenso */
+                   0 0 30px rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  /* Importar una fuente de Google Fonts si quieres usar 'Poppins' */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+</style>
+
+<div id="nombre-stream">
+  Sanrin
+</div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarColorNombre() {
+    document.getElementById('nombre-stream').style.color = getRandomColor();
+  }
+
+  // Actualiza el color cada 1.5 segundos
+  setInterval(actualizarColorNombre, 1500);
+  // Llama una vez al inicio para que el color aparezca inmediatamente
+  actualizarColorNombre(); 
+</script>
