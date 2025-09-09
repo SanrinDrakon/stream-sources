@@ -1,0 +1,48 @@
+<style>
+  body {
+    background-color: transparent; /* Fondo transparente para que solo se vea el reloj */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Una fuente moderna y legible */
+    font-size: 100px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita para mejor visibilidad */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex; /* Para centrar el reloj verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Ocupar toda la altura disponible */
+    overflow: hidden; /* Evitar barras de desplazamiento si el texto es muy grande */
+  }
+  #reloj {
+    transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+  }
+</style>
+<div id="reloj"></div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarReloj() {
+    var fecha = new Date();
+    // Obtener la hora local de Venezuela (GMT-4)
+    // Esto es un poco más complejo si queremos ser súper precisos con DST,
+    // pero para la hora actual local suele ser suficiente.
+    // getHours() ya devuelve la hora local del sistema.
+    var horas = fecha.getHours().toString().padStart(2, '0');
+    var minutos = fecha.getMinutes().toString().padStart(2, '0');
+    var segundos = fecha.getSeconds().toString().padStart(2, '0');
+    
+    document.getElementById('reloj').innerHTML = `${horas}:${minutos}:${segundos}`;
+    document.getElementById('reloj').style.color = getRandomColor(); // Cambia el color
+  }
+
+  // Actualiza el reloj cada segundo
+  setInterval(actualizarReloj, 1000);
+  // Llama una vez al inicio para que el reloj aparezca inmediatamente
+  actualizarReloj(); 
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias Marquesina RGB con Llamas</title>
+    <style>
+        body {
+            background-color: transparent;
+            margin: 0;
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+        }
+        .marquesina-container {
+            width: 100%;
+            white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: marquesina-movimiento 10s linear infinite; /* Animación de movimiento (ajusta los segundos para la velocidad) */
+            will-change: transform; /* Ayuda a la fluidez de la animación */
+        }
+        .mensaje-gracias {
+            display: inline-block;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-size: 100px;
+            font-weight: bold;
+            color: rgb(255, 255, 255); /* Color inicial blanco */
+            transition: color 1s ease-in-out; /* Transición suave para el cambio de color */
+            padding-left: 100%; /* El texto comienza fuera de la pantalla */
+
+            /* Estilo de las llamas con text-shadow múltiple */
+            text-shadow:
+                0 0 10px rgba(255, 165, 0, 0.8), /* Naranja base */
+                0 0 20px rgba(255, 69, 0, 0.7),  /* Rojo-naranja más intenso */
+                0 0 30px rgba(255, 0, 0, 0.6),   /* Rojo puro */
+                0 0 40px rgba(255, 255, 0, 0.5), /* Amarillo brillante */
+                0 0 50px rgba(255, 100, 0, 0.4); /* Resplandor adicional */
+            animation: flame-pulse 1.5s infinite alternate; /* Animación de pulsación de llamas */
+            will-change: text-shadow; /* Optimización para la animación */
+        }
+
+        /* Animación del movimiento de marquesina */
+        @keyframes marquesina-movimiento {
+            from { transform: translate3d(0, -50%, 0); }
+            to { transform: translate3d(-100%, -50%, 0); }
+        }
+
+        /* Animación para el efecto de pulsación de las llamas */
+        @keyframes flame-pulse {
+            0% {
+                text-shadow:
+                    0 0 10px rgba(255, 165, 0, 0.8),
+                    0 0 20px rgba(255, 69, 0, 0.7),
+                    0 0 30px rgba(255, 0, 0, 0.6);
+            }
+            50% {
+                text-shadow:
+                    0 0 15px rgba(255, 180, 0, 0.9), /* Más brillante */
+                    0 0 25px rgba(255, 80, 0, 0.8),
+                    0 0 35px rgba(255, 10, 0, 0.7),
+                    0 0 45px rgba(255, 255, 0, 0.6); /* Aparece el amarillo */
+            }
+            100% {
+                text-shadow:
+                    0 0 10px rgba(255, 165, 0, 0.8),
+                    0 0 20px rgba(255, 69, 0, 0.7),
+                    0 0 30px rgba(255, 0, 0, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquesina-container">
+        <div id="gracias-mensaje" class="mensaje-gracias">
+            ¡Gracias por la visita!
+        </div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        const graciasMensaje = document.getElementById('gracias-mensaje');
+
+        function actualizarColor() {
+            graciasMensaje.style.color = getRandomColor();
+        }
+        
+        // Cambia el color RGB cada segundo
+        setInterval(actualizarColor, 1000);
+        // Llama a la función una vez para que el color aparezca al inicio
+        actualizarColor();
+    </script>
+
+</body>
+</html>

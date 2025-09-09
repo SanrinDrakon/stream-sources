@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drakón RGB</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegura que ocupe toda la altura */
+            background-color: transparent; /* Fondo transparente para usar como overlay */
+        }
+
+        #drakon-container {
+            position: relative;
+            /* Aquí hacemos el ajuste clave: limitar el tamaño máximo */
+            max-width: 75%; /* La imagen no superará el 75% del ancho del navegador */
+            max-height: 90vh; /* La imagen no superará el 90% de la altura del navegador */
+        }
+
+        #drakon-img {
+            display: block; /* Elimina espacios extra */
+            width: 100%; /* La imagen ocupará el 100% del contenedor */
+            height: auto;
+            /* Aquí está el filtro de color */
+            filter: hue-rotate(0deg);
+            transition: filter 1s linear;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="drakon-container">
+        <img id="drakon-img" src="drakon_rgb.png" alt="Drakón Crónicas del Caos">
+    </div>
+
+    <script>
+        const drakonImg = document.getElementById('drakon-img');
+        let hue = 0; // Inicializamos el tono en 0 grados
+
+        function changeHue() {
+            hue = (hue + 10) % 360; // Incrementa el tono y lo reinicia en 360
+            drakonImg.style.filter = `hue-rotate(${hue}deg)`; // Aplica el filtro
+        }
+
+        // Cambia el tono cada 90 milisegundos para una animación fluida
+        setInterval(changeHue, 90);
+    </script>
+
+</body>
+</html>
