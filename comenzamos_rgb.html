@@ -1,0 +1,42 @@
+<style>
+  body {
+    background-color: transparent;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 85px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .mensaje-linea {
+    transition: color 1s ease-in-out;
+    line-height: 1.2;
+  }
+</style>
+
+<div id="contenedor-mensaje">
+  <div id="linea1" class="mensaje-linea">En breve</div>
+  <div id="linea2" class="mensaje-linea">Comenzamos</div>
+</div>
+
+<script>
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function actualizarColores() {
+    document.getElementById('linea1').style.color = getRandomColor();
+    document.getElementById('linea2').style.color = getRandomColor();
+  }
+
+  setInterval(actualizarColores, 1000);
+  actualizarColores(); 
+</script>
